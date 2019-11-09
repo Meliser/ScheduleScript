@@ -35,13 +35,13 @@ for c in surnamesRooms:
 idCountersList = [ [id,counters[id]] for id in range(45)] #45 - количество людей на этаже
 
 #загрузка графика 
-sheduleBook = load_workbook('Графики_4_этаж.xlsx')
-source = sheduleBook['Шаблон']
+scheduleBook = load_workbook('Графики_4_этаж.xlsx')
+source = scheduleBook['Шаблон']
 
 #создание графика на месяц
 for i in range(monthsSize):
     #создание нового листа
-    target = sheduleBook.copy_worksheet(source)
+    target = scheduleBook.copy_worksheet(source)
     target.title = monthsTitles[i]
     #запись названия месяца в ячейку 
     target.cell(column = 28,row = 2,value = monthsTitles[i] + ' 2019 г.')
@@ -62,7 +62,7 @@ for i in range(monthsSize):
     
 #сохранение графика
 print('Сохранение графика...',end='')        
-sheduleBook.save('Графики_4_этаж.xlsx')
+scheduleBook.save('Графики_4_этаж.xlsx')
 print('Завершено')
 
 #запись крайнего месяца, для которого составлен график
